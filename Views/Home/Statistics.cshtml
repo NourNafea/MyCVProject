@@ -1,0 +1,132 @@
+@model IEnumerable<Person>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Persons List</h1>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Languages)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hobbies)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Projects)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apps)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sites)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Courses)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                
+                <td>
+                    @foreach (var language in item.Languages)
+                    {
+                        @Html.DisplayFor(modelItem => language.Name)
+                        <br/>
+                    }
+                </td>
+                <td>
+                    @foreach (var hobby in item.Hobbies)
+                    {
+                        @Html.DisplayFor(modelItem => hobby.Name)
+                        <br/>
+                    }
+                </td>
+                
+                <td>
+                    @foreach (var project in item.Projects)
+                    {
+                        @Html.DisplayFor(modelItem => project.Name)
+                        <br/>
+                    }
+                </td>
+                
+                <td>
+                    @foreach (var app in item.Apps)
+                    {
+                        @Html.DisplayFor(modelItem => app.Name)
+                        <br/>
+                    }
+                </td>
+                
+                <td>
+                    @foreach (var site in item.Sites)
+                    {
+                        @Html.DisplayFor(modelItem => site.Address)
+                        <br/>
+                    }
+                </td>
+                <td>
+                    @foreach (var course in item.Courses)
+                    {
+                        @Html.DisplayFor(modelItem => course.Name)
+                        <br/>
+                    }
+                </td>
+                
+                
+            </tr>
+            }
+        </tbody>
+    </table>
+    </div>

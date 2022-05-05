@@ -1,0 +1,94 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model FormViewModel
+@using (Html.BeginForm("MyForm", "Home", FormMethod.Post))
+{
+    <form>
+        <div class="mb-3">
+            <label class="form-label">First Name</label>
+            @Html.TextBoxFor(m => m.Person.FirstName ,new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            @Html.TextBoxFor(m => m.Person.LastName,new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Address</label>
+            @Html.TextBoxFor(m => m.Person.Address,new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label class="form-label">City</label>
+            @Html.TextBoxFor(m => m.Person.City,new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Country</label>
+            @Html.DropDownListFor(m => m.Person.Country,
+                new SelectList(new List<string> { "India", "USA", "UK" ,"Egypt","Select Country"},"Select Country"),
+                new { @class = "form-control" })
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            @Html.TextBoxFor(m => m.Person.Email,new { @class = "form-control" })
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Latest 3 projects</label>
+            @for(int i=0; i< 3; i++)
+            {
+              @Html.TextBoxFor(m => m.Projects[i].Name,new { @class = "form-control" })
+              <br/>
+            }
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Latest 3 courses</label>
+            @for(int i=0; i< 3; i++)
+            {
+                @Html.TextBoxFor(m => m.Courses[i].Name,new { @class = "form-control" })
+                <br/>
+            }
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Languages</label>
+            @for(int i=0; i< 3; i++)
+            {
+              @Html.TextBoxFor(m => m.Languages[i].Name,new { @class = "form-control" })
+                <br/>
+            }
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Hobbies</label>
+            @for(int i=0; i< 3; i++)
+            {
+              @Html.TextBoxFor(m => m.Hobbies[i].Name,new { @class = "form-control" })
+                <br/>
+            }
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Preferred Apps</label>
+            @for(int i=0; i< 3; i++)
+            {
+              @Html.TextBoxFor(m => m.Apps[i].Name,new { @class = "form-control" })
+                <br/>
+            }
+        </div>
+         <div class="mb-3">
+            <label  class="form-label">Sites</label>
+            @for(int i=0; i< 3; i++)
+           {
+             @Html.TextBoxFor(m => m.Sites[i].Address,new { @class = "form-control" })
+               <br/>
+           }
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+   
+    <strong style="color: #146c43">@ViewBag.result</strong>
+   
+    
+    
+    
+
+    
+}
